@@ -180,60 +180,6 @@ void setup() {
   Serial.println("Sistem siap!");
 }
 
-//void loop() {
-//    if (!client.connected()) {
-//        reconnect();
-//    }
-//    client.loop();
-//
-//    float temperature = dht.readTemperature();
-//    int piezoValue = analogRead(PIEZOPIN);
-//    unsigned long currentMillis = millis();  // Waktu sekarang
-//
-//    // Mengirim data suhu setiap interval tertentu
-//    if (currentMillis - previousMillis >= interval) {
-//        previousMillis = currentMillis;  // Perbarui waktu sebelumnya
-//        if (!isnan(temperature)) {
-//            Serial.print("Suhu: ");
-//            Serial.print(temperature);
-//            Serial.println(" °C");
-//
-//            // Konversi nilai float menjadi string
-//            char tempString[8];  // Buffer untuk menyimpan string
-//            dtostrf(temperature, 6, 2, tempString);  // Konversi float ke string
-//            client.publish("controller/temp", tempString);
-//        } else {
-//            Serial.println("Gagal membaca data dari sensor DHT!");
-//        }
-//        Serial.println("Timer triggered!");  // Aksi dilakukan
-//    }
-//
-//    // Logika untuk pembacaan nilai piezo
-//    if (piezoValue > 1500) {
-//        // Pastikan hanya mengirim sekali untuk satu deteksi
-//        if (!vibrationDetected) {
-//            vibrationDetected = true;  // Tandai getaran terdeteksi
-//            Serial.print("Getaran terdeteksi! Nilai Piezo: ");
-//            Serial.println(piezoValue);
-//            client.publish("controller/hited", "Hited");
-//        }
-//    } else {
-//        vibrationDetected = false;  // Reset jika tidak ada getaran
-//        Serial.println("Tidak ada getaran yang terdeteksi.");
-//    }
-//
-//    // Logika timeout untuk motor
-//    if (motorActive && currentMillis - lastMessageTime > timeout) {
-//        Serial.println("Timeout tercapai, mematikan motor...");
-//        matikanMotor();
-//    }
-//}
-
-
-
-
-
-
 void loop() {
     if (!client.connected()) {
         reconnect();
