@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://kit.fontawesome.com/54ce5a95f1.js" crossorigin="anonymous"></script>
+</head>
+<body onload="init()">
+    <header style="margin-bottom: 150px; justify-content: space-between; padding: 0 150px;">
+        <h1 class="fluid" style="font-size: 128px;">RC TANK<br />TDR - 3000</h1>
+        <div class="image" style="max-width: 600px; margin-left: 150px;">
+        <img src="/static/images/Frame 21.png" style="width: 100%;">
+    </div>
+    </header>
+    <main>
+        <section class="content fluid">
+            <h2><span aria-hidden="true">Featuring&nbsp;</span>
+                <span class="sr-only">you can ship things.</span>
+            </h2>
+            <ul aria-hidden="true" style="--count: 8">
+                <li style="--i: 0">WEB Based Monitoring.</li>
+                <li style="--i: 1">Mobile Based Controlling.</li>
+                <li style="--i: 2">Real Time Monitoring.</li>
+                <li style="--i: 3">Humidity Monitoring.</li>
+                <li style="--i: 4">Temperature Monitoring.</li>
+                <li style="--i: 5">Health Point System.</li>
+                <li style="--i: 6">Vibration Detection.</li>
+                <li style="--i: 7">Data Statistic.</li>
+                <li style="--i: 8">Greatest Project.</li>
+            </ul>
+        </section>
+
+        <!-- Membuat tombol yang mengarah ke halaman dashboard -->
+
+
+        <section>
+            <a href="{{ url_for('dashboard') }}">
+                <button class="fluid" 
+                        style="padding: 10px 40px; font-size: 24px; background-color: #ffffff00; color: white; border: 1px solid white; border-radius: 9999px; cursor: pointer; transition: background-color 0.5s ease, color 0.5s ease;" 
+                        onmouseover="this.style.backgroundColor='#00BCD5'; this.style.color='white';" 
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"> Explore
+                </button>
+            </a>        
+        </section>
+        
+    </main>
+</body>
+</html>

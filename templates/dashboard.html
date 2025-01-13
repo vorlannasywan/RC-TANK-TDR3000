@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Tank Statistic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://kit.fontawesome.com/54ce5a95f1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="image2">
+            <img src="/static/images/logo.svg" alt="">
+        </div>
+        <div class="top-sidebar"></div>
+        <ul>
+            <li><a href="#home-page" class="active" onclick="showPage('home'); setActive(this)">
+                <i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="#chart-page" onclick="showPage('chart'); setActive(this)">
+                <i class="fa-solid fa-heart-pulse"></i>Health Point</a></li>
+            <li><a href="#table-page" onclick="showPage('table'); setActive(this)">
+                <i class="fa-solid fa-temperature-three-quarters"></i>Temperature</a></li>
+            <li><a href="#humidity-page" onclick="showPage('humidity'); setActive(this)">
+                <i class="fa-solid fa-water"></i>Humidity</a></li>
+            <li><a href="#contributor-page" onclick="showPage('contributor'); setActive(this)">
+                <i class="fa-solid fa-users"></i>Contributors</a></li>
+        </ul>               
+    </div>
+
+    <div class="content">
+
+        <!-- Home Page -->
+        <div id="home-page" class="page">
+            <h1>TDR - 3000</h1>
+
+            <div class="welcome-container">
+                <div class="poster-trailer">
+                    <img src="/static/images/poster.png" alt="" class="poster">
+                    <div class="trailer">
+                        <iframe src="/static/images/Trailer TDR 3000.mp4" style="margin-left: 20px;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="genrecontainer" style="margin-top: 35px;">
+                    <p>IOT</p>
+                    <p>RC TANK</p>
+                    <p>WEB Based Monitoring</p>
+                    <p>Mobile Based Controlling</p>
+
+               </div>
+                 <div class="description" style="margin-top: 35px;">
+                    <p>Proyek Mini RC Tank ini adalah proyek IoT yang dapat dikendalikan 
+                        melalui aplikasi mobile dan dipantau real-time melalui web. Dilengkapi 
+                        fitur kontrol gerak, meriam dan indikator nyawa, proyek ini mengintegrasikan 
+                        teknologi IoT dan robotik untuk pengalaman inovatif dan edukatif.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Chart Page -->
+        <div id="chart-page" class="page" style="display:none;">
+            <h1>TDR - 3000 Health Point Status</h1>
+
+            <div class="scoreboard-container" style="padding:25px 70px;">
+                <div class="image">
+                    <img src="/static/images/Frame 21.png" style="margin-right: 50px;" alt="">
+                </div>
+                <div class="scoreboard">
+                    <h2>Total Hits</h2>
+                    <p id="hit-count">0</p>
+                </div>
+                <div class="edan">
+                    <img src="/static/images/edan.png" style="  transform: scaleX(-1) scale(1.1); margin-left: -130px;" alt="">
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th> 
+                            <th>Value</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table"></tbody>
+                </table>
+            </div>
+        </div>
+    
+        <!-- Table Page -->
+        <div id="table-page" class="page" style="display:none;">
+            <h1>TDR - 3000 Temperature Status</h1>
+
+            <div class="scoreboard2">
+                <h2>Latest Temperature</h2>
+                <p id="latest-temperature">0</p>
+            </div>
+            <div>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Value</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="temperature-table"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Humidity Page -->
+        <div id="humidity-page" class="page" style="display:none;">
+            <h1>TDR - 3000 Humidity Status</h1>
+
+            <div class="scoreboard2">
+                <h2>Latest Humidity</h2>
+                <p id="latest-humidity">0%</p>
+            </div>
+            <div>
+                <canvas id="humidityChart"></canvas>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Value</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="humidity-table"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Contributor Page -->
+        <div id="contributor-page" class="page" style="display:none;">
+            <h1 style="text-align: center; margin-bottom: 50px;">Our Contributor</h1>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <img src="/static/images/1.jpeg" style="transform: translateY(-90px);" alt="">
+                    <div class="overlay">
+                        <h1>Vorlan Nasywan F</h1>
+                        <h1>152022175</h1>
+                        <p>Mekatronika, Server</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="/static/images/2.jpeg" style="transform: translateY(-150px);"alt="">
+                    <div class="overlay">
+                        <h1>Kayza Arya H</h1>
+                        <h1>152022202</h1>
+                        <p> Mekatronika </p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="/static/images/3.jpeg" style="transform: translateY(-20px) translateX(250px) scale(2.2);"alt="">
+                    <div class="overlay">
+                        <h1>Dika Juniar</h1>
+                        <h1>152022209</h1>
+                        <p>WEB Developer, Server</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="/static/images/4.jpeg" alt="">
+                    <div class="overlay">
+                        <h1>Arya Eka S</h1>
+                        <h1>152022190</h1>
+                        <p>Server, Mobile Developer</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="/static/images/5.jpeg" style="transform: translateY(-250px);" alt="">
+                    <div class="overlay">
+                        <h1>Dhafin Fauzan Purnomoputra</h1>
+                        <h1>152022185</h1>
+                        <p>Mobile Developer</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="/static/images/6.jpeg" style="transform: translateY(-10s0px);" alt="">
+                    <div class="overlay">
+                        <h1>Alif Faturrohman</h1>
+                        <h1>152022174</h1>
+                        <p>Mobile Developer</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="/static/images/7.jpeg" alt="">
+                    <div class="overlay">
+                        <h1>Checa Gattan A</h1>
+                        <h1>152022200</h1>
+                        <p>Documentation</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="/static/images/8.jpeg" style="transform: translateY(-70px);" alt="">
+                    <div class="overlay">
+                        <h1>Abyan Ardy A.N</h1>
+                        <h1>152022203</h1>
+                        <p>Documentation</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,481 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+
+
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  color: #999;
+  /* img size is 50x50 */
+  background-image: url("/static/images/bg.svg");
+  -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 0.92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  display: flex;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+
+#home-page{
+    background-color: #000000c7;
+    margin-left: -70px;
+    padding-left: 70px;
+    max-width: 1380px;
+    padding-bottom: 70px;
+    padding-top: 20px;
+    border-radius: 20px;
+}
+
+i{
+    padding-right: 15px;
+    font-size: 24px;
+}
+
+.image2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #000000;
+    height: 100vh;
+    padding: 0 30px;
+    position: fixed;
+}
+
+.data-table-link {
+    font-size: 160px; /* Ukuran teks */
+    color: #007BFF; /* Warna teks */
+    text-decoration: none; /* Hilangkan garis bawah */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: #6C7175;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: left;
+    padding: 15px 20px; 
+    display: block; 
+    border-bottom: 1px solid #ffffff5e;
+}
+
+.sidebar ul li a:hover {
+    color: #00BCD5;
+    border-bottom: 2px solid currentColor;
+
+}
+
+
+.sidebar ul li a.active {
+    background-color: #00BCD5; 
+    color: #fff; 
+    border-bottom: none; /* Hilangkan garis bawah ketika aktif */
+    border-radius: 8px;
+} 
+
+
+.content {
+    flex: 1;
+    padding: 20px 100px;
+    margin-left: 320px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: left;
+    margin-bottom: 20px;
+    color: #fff;
+    margin-top: 50px;
+}
+
+.top-container{
+background-color: #00BCD5;
+width: 200px;
+}
+
+.scoreboard-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #000000;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    animation: blink-bg 1s infinite alternate;
+}
+
+@keyframes blink-bg {
+    0% {
+        background-color: #000000; /* Warna awal */
+    }
+    100% {
+        background-color:  #242424/* Warna kedap-kedip */
+    }
+}
+
+
+.scoreboard {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 999px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.scoreboard h2 {
+    color: #00BCD5;
+    margin-bottom: 10px;
+}
+
+.scoreboard p {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.image img {
+    max-width: 400px;
+}
+
+tbody {
+    width: 60%;
+    max-height: 200px; 
+    overflow-y: auto;  
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #121212;
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #121212;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-container {
+    max-height: 300px; 
+    overflow-y: auto;  
+    border: 1px solid #262626;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #262626;
+}
+
+th {
+    position: sticky; 
+    top: 0;
+    z-index: 2;
+    background-color: #00BCD5; 
+    color: #121212;
+    border: 1px solid #262626;
+    text-align: center;
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: #262626;
+}
+
+tr:hover {
+    background-color: #00BCD5;
+}
+
+table th:first-child,
+table td:first-child {
+    text-align: center; /* Pusatkan teks */
+    width: 50px;        /* Tentukan lebar kolom */
+}
+
+
+#temperatureChart{
+    max-height: 300px;
+    background-color: #262626;
+}
+
+#humidityChart{
+    max-height: 300px;
+    background-color: #262626;
+}
+
+.scoreboard2 {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.scoreboard2 h2 {
+    color: #00BCD5;
+    margin-bottom: 10px;
+}
+
+.scoreboard2 p {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 100px auto;
+    background-color: #000000;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text h1 {
+    font-size: 54px;
+    text-align: left;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+
+.text p {
+    text-align: left;
+}
+
+.skor{
+    display: flex;
+    flex-direction: row;   
+}
+
+.ratingcontainer{
+    display: flex;
+    flex-direction: column;    
+}
+
+.skor .score {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.poster-trailer {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.poster {
+    width: 350px;
+    margin-bottom: 20px;
+    margin-right: 5px;
+}
+
+.trailer iframe {
+    margin-top: -23px;
+    width: 850px;
+    height: 540px;
+}
+
+.genrecontainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.genrecontainer p{
+    margin-right: 10px;
+    border: 1px solid #ffffff9f;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+
+.description{
+    margin-top: 20px;
+    max-width: 1300px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 50px;
+}
+
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #00BCD5 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.photo-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h1 {
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+.overlay p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Satu baris dengan 4 kolom */
+    gap: 20px; /* Jarak antar kartu */
+    margin-top: 20px;
+    margin-left: -50px;
+}
+
+.photo-card {
+    max-height: 300px;
+    width: 480px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: translateY(-150px); /* Geser gambar 10px ke atas */
+}
+
+.photo-card:hover img{
+    filter: brightness(45%);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.photo-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #54b9d2b6, transparent); /* Gradien biru ke transparan */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+.photo-card:hover .overlay {
+    opacity: 1; /* Tampilkan overlay saat hover */
+}
